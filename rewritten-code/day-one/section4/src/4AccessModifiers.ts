@@ -1,10 +1,9 @@
 export {};
-
 class Project {
-  //this means that this variable can only be accessed within this class
-  // private name: string;
-  // this means that this variable can be acessed within subclasses too
-  // protected name: string;
+  // private means that the variable is only accessible within this class
+  // protected means that the variable is acessible only within this class or subclasses
+  // public means that this variable can be accessed within this class, subclasses or outside
+
   public name: string;
   budget: number;
 
@@ -13,7 +12,7 @@ class Project {
     this.budget = budget;
   }
 
-  printBudget() {
+  public printBudget() {
     console.log(`${this.name} has a budget of ${this.budget}`);
   }
 }
@@ -23,17 +22,16 @@ class ProjectShorter {
     this.name = name;
     this.budget = budget;
   }
-
   printBudget() {
     console.log(`${this.name} has a budget of ${this.budget}`);
   }
 }
 
 class SecretProject extends Project {
-  secrecyLevel: 1 | 2 | 3;
+  secrecyLevel = 1 | 2 | 3;
 
   constructor(secrecyLevel: 1 | 2 | 3) {
-    super("Secret project", 100000);
+    super("Secret Project", 100000000);
     this.secrecyLevel = secrecyLevel;
   }
 
@@ -42,6 +40,6 @@ class SecretProject extends Project {
   }
 }
 
-const coolProject = new Project("CoolProject", 10000);
-coolProject.name = "UpdatedName";
+const coolProject = new Project("Cool Project", 2000);
+coolProject.name = "updated name";
 coolProject.printBudget();
